@@ -1,3 +1,4 @@
+using BookWebApiMongoDB.Settings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -19,6 +20,9 @@ namespace BookWebApiMongoDB
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<BookstoreDatabaseSettings>(
+                Configuration.GetSection(nameof(BookstoreDatabaseSettings)));
+
             services.AddControllers();
         }
 
