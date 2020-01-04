@@ -11,15 +11,21 @@ namespace RazorPagesIntro.Pages
 {
     public class IndexModel : PageModel
     {
+        #region Properties
+
         private readonly ILogger<IndexModel> _logger;
         private readonly CustomerDbContext _customerDbContext;
         public IList<Customer> CustomerList { get; set; }
+
+        #endregion
 
         public IndexModel(CustomerDbContext customerDbContext, ILogger<IndexModel> logger = null)
         {
             _customerDbContext = customerDbContext;
             _logger = logger;
         }
+
+        #region HttpMethods
 
         public async Task OnGetAsync()
         {
@@ -38,5 +44,7 @@ namespace RazorPagesIntro.Pages
 
             return RedirectToPage();
         }
+
+        #endregion
     }
 }
