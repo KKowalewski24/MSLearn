@@ -1,29 +1,24 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using RazorPagesIntro.Data;
 using RazorPagesIntro.Models;
 using static RazorPagesIntro.Constants.Constants;
 
-namespace RazorPagesIntro.Pages
+namespace RazorPagesIntro.Pages.Movies
 {
     public class CreateModel : PageModel
     {
-        #region Properties
-
         private readonly AppDbContext _appDbContext;
 
         [BindProperty]
-        public Customer Customer { get; set; }
-
-        #endregion
+        public Movie Movie { get; set; }
 
         public CreateModel(AppDbContext appDbContext)
         {
             _appDbContext = appDbContext;
         }
-
-        #region HttpMethods
 
         public IActionResult OnGet()
         {
@@ -37,12 +32,10 @@ namespace RazorPagesIntro.Pages
                 return Page();
             }
 
-            _appDbContext.Customers.Add(Customer);
+            _appDbContext.Movies.Add(Movie);
             await _appDbContext.SaveChangesAsync();
 
-            return RedirectToPage(PATH_INDEX);
+            return RedirectToPage(PATH_MOVIES);
         }
-
-        #endregion
     }
 }

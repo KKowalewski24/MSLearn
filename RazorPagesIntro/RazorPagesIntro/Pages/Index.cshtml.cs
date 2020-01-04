@@ -14,14 +14,14 @@ namespace RazorPagesIntro.Pages
         #region Properties
 
         private readonly ILogger<IndexModel> _logger;
-        private readonly CustomerDbContext _customerDbContext;
+        private readonly AppDbContext _appDbContext;
         public IList<Customer> CustomerList { get; set; }
 
         #endregion
 
-        public IndexModel(CustomerDbContext customerDbContext, ILogger<IndexModel> logger = null)
+        public IndexModel(AppDbContext appDbContext, ILogger<IndexModel> logger = null)
         {
-            _customerDbContext = customerDbContext;
+            _appDbContext = appDbContext;
             _logger = logger;
         }
 
@@ -29,17 +29,17 @@ namespace RazorPagesIntro.Pages
 
         public async Task OnGetAsync()
         {
-            CustomerList = await _customerDbContext.Customers.ToListAsync();
+            CustomerList = await _appDbContext.Customers.ToListAsync();
         }
 
         public async Task<IActionResult> OnPostDeleteAsync(int id)
         {
-            var customer = await _customerDbContext.Customers.FindAsync(id);
+            var customer = await _appDbContext.Customers.FindAsync(id);
 
             if (customer != null)
             {
-                _customerDbContext.Customers.Remove(customer);
-                await _customerDbContext.SaveChangesAsync();
+                _appDbContext.Customers.Remove(customer);
+                await _appDbContext.SaveChangesAsync();
             }
 
             return RedirectToPage();

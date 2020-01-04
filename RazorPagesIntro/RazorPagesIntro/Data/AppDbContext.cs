@@ -3,22 +3,16 @@ using RazorPagesIntro.Models;
 
 namespace RazorPagesIntro.Data
 {
-    public class CustomerDbContext : DbContext
+    public class AppDbContext : DbContext
     {
         /*----------------------- PROPERTIES REGION ----------------------*/
-        #region Properties
-
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Movie> Movies { get; set; }
 
-        #endregion
         /*------------------------ METHODS REGION ------------------------*/
-        #region Methods
-
-        public CustomerDbContext(DbContextOptions options)
+        public AppDbContext(DbContextOptions options)
             : base(options)
         {
         }
-
-        #endregion
     }
 }

@@ -13,23 +13,23 @@ namespace RazorPagesIntro.Pages
     {
         #region Properties
 
-        private readonly CustomerDbContext _customerDbContext;
+        private readonly AppDbContext _appDbContext;
 
         [BindProperty]
         public Customer Customer { get; set; }
 
         #endregion
 
-        public EditModel(CustomerDbContext customerDbContext)
+        public EditModel(AppDbContext appDbContext)
         {
-            _customerDbContext = customerDbContext;
+            _appDbContext = appDbContext;
         }
 
         #region HttpMethods
 
         public async Task<IActionResult> OnGetAsync(int id)
         {
-            Customer = await _customerDbContext.Customers.FindAsync(id);
+            Customer = await _appDbContext.Customers.FindAsync(id);
             
             if (Customer != null)
             {
@@ -46,11 +46,11 @@ namespace RazorPagesIntro.Pages
                 return Page();
             }
 
-            _customerDbContext.Attach(Customer).State = EntityState.Modified;
+            _appDbContext.Attach(Customer).State = EntityState.Modified;
 
             try
             {
-                await _customerDbContext.SaveChangesAsync();
+                await _appDbContext.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
