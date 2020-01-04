@@ -9,15 +9,13 @@ namespace RazorPagesIntro.Pages
 {
     public class CreateModel : PageModel
     {
-        #region Properties
-
+        /*----------------------- PROPERTIES REGION ----------------------*/
         private readonly AppDbContext _appDbContext;
 
         [BindProperty]
         public Customer Customer { get; set; }
 
-        #endregion
-
+        /*------------------------ METHODS REGION ------------------------*/
         public CreateModel(AppDbContext appDbContext)
         {
             _appDbContext = appDbContext;

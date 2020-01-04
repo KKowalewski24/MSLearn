@@ -11,14 +11,12 @@ namespace RazorPagesIntro.Pages
 {
     public class IndexModel : PageModel
     {
-        #region Properties
-
+        /*----------------------- PROPERTIES REGION ----------------------*/
         private readonly ILogger<IndexModel> _logger;
         private readonly AppDbContext _appDbContext;
         public IList<Customer> CustomerList { get; set; }
 
-        #endregion
-
+        /*------------------------ METHODS REGION ------------------------*/
         public IndexModel(AppDbContext appDbContext, ILogger<IndexModel> logger = null)
         {
             _appDbContext = appDbContext;

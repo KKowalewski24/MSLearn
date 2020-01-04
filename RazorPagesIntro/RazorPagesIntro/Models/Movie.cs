@@ -6,8 +6,7 @@ namespace RazorPagesIntro.Models
 {
     public class Movie
     {
-        #region Properties
-
+        /*----------------------- PROPERTIES REGION ----------------------*/
         public int Id { get; set; }
 
         [StringLength(60, MinimumLength = 3)]
@@ -33,8 +32,7 @@ namespace RazorPagesIntro.Models
         [Required]
         public string Rating { get; set; }
 
-        #endregion
-
+        /*------------------------ METHODS REGION ------------------------*/
         public Movie()
         {
         }

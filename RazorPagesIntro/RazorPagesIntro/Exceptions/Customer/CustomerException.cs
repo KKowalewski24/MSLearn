@@ -4,6 +4,9 @@ namespace RazorPagesIntro.Exceptions.Customer
 {
     public abstract class CustomerException : Exception
     {
+        /*----------------------- PROPERTIES REGION ----------------------*/
+
+        /*------------------------ METHODS REGION ------------------------*/
         protected CustomerException()
         {
         }

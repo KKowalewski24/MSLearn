@@ -10,15 +10,19 @@ namespace RazorPagesIntro.Pages.Movies
 {
     public class IndexModel : PageModel
     {
+        /*----------------------- PROPERTIES REGION ----------------------*/
         private readonly AppDbContext _appDbContext;
 
         [BindProperty]
         public IList<Movie> Movies { get; set; }
 
+        /*------------------------ METHODS REGION ------------------------*/
         public IndexModel(AppDbContext appDbContext)
         {
             _appDbContext = appDbContext;
         }
+
+        #region HttpMethods
 
         public async Task OnGetAsync()
         {
@@ -37,5 +41,7 @@ namespace RazorPagesIntro.Pages.Movies
 
             return RedirectToPage();
         }
+
+        #endregion
     }
 }

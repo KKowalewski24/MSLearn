@@ -11,15 +11,13 @@ namespace RazorPagesIntro.Pages
 {
     public class EditModel : PageModel
     {
-        #region Properties
-
+        /*----------------------- PROPERTIES REGION ----------------------*/
         private readonly AppDbContext _appDbContext;
 
         [BindProperty]
         public Customer Customer { get; set; }
 
-        #endregion
-
+        /*------------------------ METHODS REGION ------------------------*/
         public EditModel(AppDbContext appDbContext)
         {
             _appDbContext = appDbContext;

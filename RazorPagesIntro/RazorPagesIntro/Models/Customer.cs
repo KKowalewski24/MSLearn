@@ -5,15 +5,13 @@ namespace RazorPagesIntro.Models
 {
     public class Customer
     {
-        #region Properties
-
+        /*----------------------- PROPERTIES REGION ----------------------*/
         public int Id { get; set; }
 
         [Required, StringLength(10)]
         public string Name { get; set; }
 
-        #endregion
-
+        /*------------------------ METHODS REGION ------------------------*/
         public Customer()
         {
         }

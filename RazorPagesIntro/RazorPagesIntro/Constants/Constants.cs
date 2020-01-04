@@ -2,6 +2,7 @@
 {
     public class Constants
     {
+        /*----------------------- PROPERTIES REGION ----------------------*/
         public const string DB_NAME = "InternalDatabase";
 
         public const string SLASH = "/";
@@ -11,6 +12,8 @@
 
         public const string PATH_INDEX = SLASH + INDEX;
         public const string PATH_ERROR = SLASH + ERROR;
+
         public const string PATH_MOVIES = SLASH + MOVIES + SLASH + INDEX;
+        /*------------------------ METHODS REGION ------------------------*/
     }
 }

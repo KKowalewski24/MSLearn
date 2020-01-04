@@ -5,6 +5,9 @@ namespace RazorPagesIntro
 {
     public class Program
     {
+        /*----------------------- PROPERTIES REGION ----------------------*/
+
+        /*------------------------ METHODS REGION ------------------------*/
         public static IHostBuilder CreateHostBuilder(string[] args)
         {
             return Host.CreateDefaultBuilder(args)

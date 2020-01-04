@@ -5,12 +5,10 @@ namespace RazorPagesIntro.Pages
 {
     public class PrivacyModel : PageModel
     {
-        #region Properties
-
+        /*----------------------- PROPERTIES REGION ----------------------*/
         private readonly ILogger<PrivacyModel> _logger;
 
-        #endregion
-
+        /*------------------------ METHODS REGION ------------------------*/
         public PrivacyModel(ILogger<PrivacyModel> logger)
         {
             _logger = logger;

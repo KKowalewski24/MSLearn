@@ -4,6 +4,9 @@ namespace RazorPagesIntro.Exceptions.Movie
 {
     public class MovieNotFoundException : MovieException
     {
+        /*----------------------- PROPERTIES REGION ----------------------*/
+
+        /*------------------------ METHODS REGION ------------------------*/
         public MovieNotFoundException()
         {
         }

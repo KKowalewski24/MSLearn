@@ -11,22 +11,21 @@ namespace RazorPagesIntro
 {
     public class Startup
     {
+        /*----------------------- PROPERTIES REGION ----------------------*/
         public IConfiguration Configuration { get; }
 
+        /*------------------------ METHODS REGION ------------------------*/
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<AppDbContext>((it) => it.UseInMemoryDatabase(DB_NAME));
-
             services.AddRazorPages();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -36,7 +35,6 @@ namespace RazorPagesIntro
             else
             {
                 app.UseExceptionHandler(PATH_ERROR);
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
@@ -44,9 +42,7 @@ namespace RazorPagesIntro
             app.UseStaticFiles();
 
             app.UseRouting();
-
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints => { endpoints.MapRazorPages(); });
         }
     }

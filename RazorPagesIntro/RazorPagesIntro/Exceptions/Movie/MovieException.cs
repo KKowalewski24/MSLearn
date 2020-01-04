@@ -4,6 +4,9 @@ namespace RazorPagesIntro.Exceptions.Movie
 {
     public abstract class MovieException : Exception
     {
+        /*----------------------- PROPERTIES REGION ----------------------*/
+
+        /*------------------------ METHODS REGION ------------------------*/
         protected MovieException()
         {
         }

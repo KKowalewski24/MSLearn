@@ -11,15 +11,19 @@ namespace RazorPagesIntro.Pages.Movies
 {
     public class EditModel : PageModel
     {
+        /*----------------------- PROPERTIES REGION ----------------------*/
         private readonly AppDbContext _appDbContext;
 
         [BindProperty]
         public Movie Movie { get; set; }
 
+        /*------------------------ METHODS REGION ------------------------*/
         public EditModel(AppDbContext appDbContext)
         {
             _appDbContext = appDbContext;
         }
+
+        #region HttpMethods
 
         public async Task<IActionResult> OnGetAsync(int id)
         {
@@ -53,5 +57,7 @@ namespace RazorPagesIntro.Pages.Movies
 
             return RedirectToPage(PATH_MOVIES);
         }
+
+        #endregion
     }
 }

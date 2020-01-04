@@ -4,6 +4,9 @@ namespace RazorPagesIntro.Exceptions.Customer
 {
     public class CustomerNotFoundException : CustomerException
     {
+        /*----------------------- PROPERTIES REGION ----------------------*/
+
+        /*------------------------ METHODS REGION ------------------------*/
         public CustomerNotFoundException()
         {
         }
