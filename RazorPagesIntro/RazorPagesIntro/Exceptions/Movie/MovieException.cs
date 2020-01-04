@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RazorPagesIntro.Exceptions
+namespace RazorPagesIntro.Exceptions.Movie
 {
     public abstract class MovieException : Exception
     {

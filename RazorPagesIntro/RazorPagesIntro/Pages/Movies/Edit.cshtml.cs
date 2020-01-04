@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using RazorPagesIntro.Data;
-using RazorPagesIntro.Exceptions;
+using RazorPagesIntro.Exceptions.Movie;
 using RazorPagesIntro.Models;
 using static RazorPagesIntro.Constants.Constants;
 

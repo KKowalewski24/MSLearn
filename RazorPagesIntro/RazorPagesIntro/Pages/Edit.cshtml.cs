@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using RazorPagesIntro.Data;
-using RazorPagesIntro.Exceptions;
+using RazorPagesIntro.Exceptions.Customer;
 using RazorPagesIntro.Models;
 using static RazorPagesIntro.Constants.Constants;
 
@@ -30,7 +30,7 @@ namespace RazorPagesIntro.Pages
         public async Task<IActionResult> OnGetAsync(int id)
         {
             Customer = await _appDbContext.Customers.FindAsync(id);
-            
+
             if (Customer != null)
             {
                 return Page();

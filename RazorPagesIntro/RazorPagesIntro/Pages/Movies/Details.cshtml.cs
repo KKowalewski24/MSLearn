@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using RazorPagesIntro.Data;
 using RazorPagesIntro.Models;
 using static RazorPagesIntro.Constants.Constants;
+
 namespace RazorPagesIntro.Pages.Movies
 {
     public class DetailsModel : PageModel
@@ -22,7 +23,7 @@ namespace RazorPagesIntro.Pages.Movies
         {
             Movie = await _appDbContext.Movies.FindAsync(id);
 
-            if (Movie!=null)
+            if (Movie != null)
             {
                 return Page();
             }

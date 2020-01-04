@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RazorPagesIntro.Exceptions
+namespace RazorPagesIntro.Exceptions.Customer
 {
     public class CustomerNotFoundException : CustomerException
     {
