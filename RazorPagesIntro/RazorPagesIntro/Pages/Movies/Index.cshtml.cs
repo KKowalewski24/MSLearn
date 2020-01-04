@@ -24,5 +24,18 @@ namespace RazorPagesIntro.Pages.Movies
         {
             Movies = await _appDbContext.Movies.ToListAsync();
         }
+
+        public async Task<IActionResult> OnPostDeleteAsync(int id)
+        {
+            var movie = await _appDbContext.Movies.FindAsync(id);
+
+            if (movie != null)
+            {
+                _appDbContext.Movies.Remove(movie);
+                await _appDbContext.SaveChangesAsync();
+            }
+
+            return RedirectToPage();
+        }
     }
 }

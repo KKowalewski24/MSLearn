@@ -9,53 +9,56 @@
 <p>
   <a asp-page="Create">Create New</a>
 </p>
-<table class="table">
-  <thead>
-    <tr>
-      <th>
-        @Html.DisplayNameFor(model => model.Movies[0].Title)
-      </th>
-      <th>
-        @Html.DisplayNameFor(model => model.Movies[0].ReleaseDate)
-      </th>
-      <th>
-        @Html.DisplayNameFor(model => model.Movies[0].Genre)
-      </th>
-      <th>
-        @Html.DisplayNameFor(model => model.Movies[0].Price)
-      </th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    @foreach (var item in Model.Movies)
-    {
+
+<form method="post">
+  <table class="table">
+    <thead>
       <tr>
-        <td>
-          @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-          @Html.DisplayFor(modelItem => item.ReleaseDate)
-        </td>
-        <td>
-          @Html.DisplayFor(modelItem => item.Genre)
-        </td>
-        <td>
-          @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        
-        <td>
-          <a asp-page="./Edit" asp-route-id="@item.Id">
-            Edit
-          </a> |
-          <a asp-page="./Details" asp-route-id="@item.Id">
-            Details
-          </a> |
-          <a asp-page="./Delete" asp-route-id="@item.Id">
-            Delete
-          </a>
-        </td>
+        <th>
+          @Html.DisplayNameFor(model => model.Movies[0].Title)
+        </th>
+        <th>
+          @Html.DisplayNameFor(model => model.Movies[0].ReleaseDate)
+        </th>
+        <th>
+          @Html.DisplayNameFor(model => model.Movies[0].Genre)
+        </th>
+        <th>
+          @Html.DisplayNameFor(model => model.Movies[0].Price)
+        </th>
+        <th></th>
       </tr>
-    }
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      @foreach (var item in Model.Movies)
+      {
+        <tr>
+          <td>
+            @Html.DisplayFor(modelItem => item.Title)
+          </td>
+          <td>
+            @Html.DisplayFor(modelItem => item.ReleaseDate)
+          </td>
+          <td>
+            @Html.DisplayFor(modelItem => item.Genre)
+          </td>
+          <td>
+            @Html.DisplayFor(modelItem => item.Price)
+          </td>
+
+          <td>
+            <a asp-page="/Movies/Edit" asp-route-id="@item.Id">
+              Edit
+            </a> |
+            <a asp-page="/Movies/Details" asp-route-id="@item.Id">
+              Details
+            </a> |
+            <button type="submit" asp-page-handler="delete" asp-route-id="@item.Id">
+              delete
+            </button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</form>
