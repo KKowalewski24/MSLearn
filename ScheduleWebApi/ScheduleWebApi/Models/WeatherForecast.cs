@@ -1,6 +1,6 @@
 using System;
 
-namespace ScheduleWebApi
+namespace ScheduleWebApi.Models
 {
     public class WeatherForecast
     {
