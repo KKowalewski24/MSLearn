@@ -1,6 +1,6 @@
 using System;
 
-namespace BookWebApiMongoDB
+namespace BookWebApiMongoDB.Models
 {
     public class WeatherForecast
     {
