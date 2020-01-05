@@ -30,7 +30,7 @@ namespace BookWebApiMongoDB
 
             services.AddSingleton<BookService>();
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson((it) => it.UseMemberCasing());
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -43,7 +43,7 @@ namespace BookWebApiMongoDB
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthorization();
-            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            app.UseEndpoints(endpoints => endpoints.MapControllers());
         }
     }
 }
