@@ -1,5 +1,4 @@
 # MSLearn - ASP.NET Core 3.0
-## Repository Contains Following Projects
 
 ### RazorPagesIntro (ASP.NET Core Web App)
 * Razor Pages
