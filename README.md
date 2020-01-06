@@ -1,11 +1,15 @@
 # MSLearn - ASP.NET Core 3.0
 ## Repository Contains Following Projects
 
-### RazorPagesIntro
+### RazorPagesIntro (ASP.NET Core Web App)
 * Razor Pages
 * EntityFrameworkCore 3.1.0
 * EntityFrameworkCore.InMemory 3.1.0
 
-### ScheduleWebApi
+### ScheduleWebApi (ASP.NET Core Web API)
+* EntityFrameworkCore 3.1.0
+* EntityFrameworkCore.InMemory 3.1.0
 
-### BookWebApiMongoDB
+### BookWebApiMongoDB (ASP.NET Core Web API)
+* MongoDB.Driver 2.10.0
+* Microsoft.AspNetCore.Mvc.NewtonsoftJson 
