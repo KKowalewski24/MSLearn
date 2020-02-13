@@ -1,5 +1,7 @@
 # MSLearn - ASP.NET Core 3.0
 
+### Created with JetBrains Rider .NET IDE
+
 ### RazorPagesIntro (ASP.NET Core Web App)
 * Razor Pages
 * EntityFrameworkCore 3.1.0
