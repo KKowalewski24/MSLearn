@@ -3,22 +3,22 @@
 
 <h1>Edit Customer - @Model.Customer.Id</h1>
 <form method="post">
-    <div asp-validation-summary="All"></div>
-    @* <label asp-for="Customer.Id"></label> *@
-    <input asp-for="Customer.Id" class="form-control" placeholder="Id"/>
+  <div asp-validation-summary="All"></div>
+  @* <label asp-for="Customer.Id"></label> *@
+  <input asp-for="Customer.Id" class="form-control" placeholder="Id"/>
 
+  <div>
+    @* <label asp-for="Customer.Name"></label> *@
     <div>
-        @* <label asp-for="Customer.Name"></label> *@
-        <div>
-            <input asp-for="Customer.Name" class="form-control" placeholder="Name"/>
-            <span asp-validation-for="Customer.Name"></span>
-        </div>
+      <input asp-for="Customer.Name" class="form-control" placeholder="Name"/>
+      <span asp-validation-for="Customer.Name"></span>
     </div>
+  </div>
 
-    <div class="row justify-content-center">
-        <button class="btn btn-primary" type="submit">
-            Save
-        </button>
-    </div>
+  <div class="row justify-content-center">
+    <button class="btn btn-primary" type="submit">
+      Save
+    </button>
+  </div>
 
 </form>
