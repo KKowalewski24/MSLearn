@@ -34,8 +34,7 @@ namespace RazorPagesIntro.Pages
         {
             var customer = await _appDbContext.Customers.FindAsync(id);
 
-            if (customer != null)
-            {
+            if (customer != null) {
                 _appDbContext.Customers.Remove(customer);
                 await _appDbContext.SaveChangesAsync();
             }

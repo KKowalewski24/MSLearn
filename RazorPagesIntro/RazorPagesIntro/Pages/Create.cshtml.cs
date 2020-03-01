@@ -12,8 +12,7 @@ namespace RazorPagesIntro.Pages
         /*----------------------- PROPERTIES REGION ----------------------*/
         private readonly AppDbContext _appDbContext;
 
-        [BindProperty]
-        public Customer Customer { get; set; }
+        [BindProperty] public Customer Customer { get; set; }
 
         /*------------------------ METHODS REGION ------------------------*/
         public CreateModel(AppDbContext appDbContext)
@@ -30,8 +29,7 @@ namespace RazorPagesIntro.Pages
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
+            if (!ModelState.IsValid) {
                 return Page();
             }
 

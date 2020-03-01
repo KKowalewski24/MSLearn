@@ -14,8 +14,7 @@ namespace RazorPagesIntro.Pages
         /*----------------------- PROPERTIES REGION ----------------------*/
         private readonly AppDbContext _appDbContext;
 
-        [BindProperty]
-        public Customer Customer { get; set; }
+        [BindProperty] public Customer Customer { get; set; }
 
         /*------------------------ METHODS REGION ------------------------*/
         public EditModel(AppDbContext appDbContext)
@@ -29,8 +28,7 @@ namespace RazorPagesIntro.Pages
         {
             Customer = await _appDbContext.Customers.FindAsync(id);
 
-            if (Customer != null)
-            {
+            if (Customer != null) {
                 return Page();
             }
 
@@ -39,19 +37,16 @@ namespace RazorPagesIntro.Pages
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
+            if (!ModelState.IsValid) {
                 return Page();
             }
 
             _appDbContext.Attach(Customer).State = EntityState.Modified;
 
-            try
-            {
+            try {
                 await _appDbContext.SaveChangesAsync();
             }
-            catch (DbUpdateConcurrencyException)
-            {
+            catch (DbUpdateConcurrencyException) {
                 throw new CustomerNotFoundException(Customer.Id.ToString());
             }
 

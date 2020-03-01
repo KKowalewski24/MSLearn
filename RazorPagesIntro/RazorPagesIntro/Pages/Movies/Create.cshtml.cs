@@ -11,8 +11,7 @@ namespace RazorPagesIntro.Pages.Movies
     {
         private readonly AppDbContext _appDbContext;
 
-        [BindProperty]
-        public Movie Movie { get; set; }
+        [BindProperty] public Movie Movie { get; set; }
 
         public CreateModel(AppDbContext appDbContext)
         {
@@ -26,8 +25,7 @@ namespace RazorPagesIntro.Pages.Movies
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
+            if (!ModelState.IsValid) {
                 return Page();
             }
 

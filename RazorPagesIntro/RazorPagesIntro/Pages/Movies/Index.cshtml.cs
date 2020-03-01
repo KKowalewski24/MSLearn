@@ -13,8 +13,7 @@ namespace RazorPagesIntro.Pages.Movies
         /*----------------------- PROPERTIES REGION ----------------------*/
         private readonly AppDbContext _appDbContext;
 
-        [BindProperty]
-        public IList<Movie> Movies { get; set; }
+        [BindProperty] public IList<Movie> Movies { get; set; }
 
         /*------------------------ METHODS REGION ------------------------*/
         public IndexModel(AppDbContext appDbContext)
@@ -33,8 +32,7 @@ namespace RazorPagesIntro.Pages.Movies
         {
             var movie = await _appDbContext.Movies.FindAsync(id);
 
-            if (movie != null)
-            {
+            if (movie != null) {
                 _appDbContext.Movies.Remove(movie);
                 await _appDbContext.SaveChangesAsync();
             }

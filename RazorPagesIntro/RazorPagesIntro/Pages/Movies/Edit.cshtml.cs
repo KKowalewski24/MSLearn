@@ -14,8 +14,7 @@ namespace RazorPagesIntro.Pages.Movies
         /*----------------------- PROPERTIES REGION ----------------------*/
         private readonly AppDbContext _appDbContext;
 
-        [BindProperty]
-        public Movie Movie { get; set; }
+        [BindProperty] public Movie Movie { get; set; }
 
         /*------------------------ METHODS REGION ------------------------*/
         public EditModel(AppDbContext appDbContext)
@@ -29,8 +28,7 @@ namespace RazorPagesIntro.Pages.Movies
         {
             Movie = await _appDbContext.Movies.FindAsync(id);
 
-            if (Movie != null)
-            {
+            if (Movie != null) {
                 return Page();
             }
 
@@ -39,19 +37,16 @@ namespace RazorPagesIntro.Pages.Movies
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
+            if (!ModelState.IsValid) {
                 return Page();
             }
 
             _appDbContext.Attach(Movie).State = EntityState.Modified;
 
-            try
-            {
+            try {
                 await _appDbContext.SaveChangesAsync();
             }
-            catch (DbUpdateConcurrencyException)
-            {
+            catch (DbUpdateConcurrencyException) {
                 throw new MovieNotFoundException(Movie.Id.ToString());
             }
 

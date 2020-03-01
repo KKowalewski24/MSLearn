@@ -2,16 +2,16 @@
 @model RazorPagesIntro.Pages.CreateModel
 
 @{
-  ViewData["Title"] = "Create";
+    ViewData["Title"] = "Create";
 }
 
 <h1>Enter a customer name:</h1>
 <form method="post">
-  <div asp-validation-summary="ModelOnly"></div>
-  <span asp-validation-for="Customer.Name"></span>
-  @* Name: *@
-  <div>
-    <input asp-for="Customer.Name" placeholder="Name"/>
-    <input type="submit"/>
-  </div>
+    <div asp-validation-summary="ModelOnly"></div>
+    <span asp-validation-for="Customer.Name"></span>
+    @* Name: *@
+    <div>
+        <input asp-for="Customer.Name" placeholder="Name"/>
+        <input type="submit"/>
+    </div>
 </form>

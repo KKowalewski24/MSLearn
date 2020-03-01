@@ -30,8 +30,7 @@ namespace BookWebApiMongoDB.Controllers
         {
             var book = _bookService.GetById(id);
 
-            if (book == null)
-            {
+            if (book == null) {
                 return NotFound();
             }
 
@@ -50,8 +49,7 @@ namespace BookWebApiMongoDB.Controllers
         {
             var bookToUpdate = _bookService.GetById(id);
 
-            if (bookToUpdate == null)
-            {
+            if (bookToUpdate == null) {
                 return NotFound();
             }
 
@@ -65,8 +63,7 @@ namespace BookWebApiMongoDB.Controllers
         {
             var bookToDelete = _bookService.GetById(id);
 
-            if (bookToDelete == null)
-            {
+            if (bookToDelete == null) {
                 return NotFound();
             }
 

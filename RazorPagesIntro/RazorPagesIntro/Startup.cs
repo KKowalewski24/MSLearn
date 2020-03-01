@@ -28,12 +28,10 @@ namespace RazorPagesIntro
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
+            if (env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
             }
-            else
-            {
+            else {
                 app.UseExceptionHandler(PATH_ERROR);
                 app.UseHsts();
             }

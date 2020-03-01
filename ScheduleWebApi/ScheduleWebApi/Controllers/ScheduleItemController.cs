@@ -38,8 +38,7 @@ namespace ScheduleWebApi.Controllers
         {
             var item = await _appDbContext.ScheduleItems.FindAsync(id);
 
-            if (item == null)
-            {
+            if (item == null) {
                 return NotFound();
             }
 
@@ -49,25 +48,20 @@ namespace ScheduleWebApi.Controllers
         [HttpPut(ID)]
         public async Task<IActionResult> PutItem(long id, ScheduleItem scheduleItem)
         {
-            if (id != scheduleItem.Id)
-            {
+            if (id != scheduleItem.Id) {
                 return BadRequest();
             }
 
             _appDbContext.Entry(scheduleItem).State = EntityState.Modified;
 
-            try
-            {
+            try {
                 await _appDbContext.SaveChangesAsync();
             }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!IsItemExists(id))
-                {
+            catch (DbUpdateConcurrencyException) {
+                if (!IsItemExists(id)) {
                     return NotFound();
                 }
-                else
-                {
+                else {
                     throw;
                 }
             }
@@ -89,8 +83,7 @@ namespace ScheduleWebApi.Controllers
         {
             var item = await _appDbContext.ScheduleItems.FindAsync(id);
 
-            if (item == null)
-            {
+            if (item == null) {
                 return NotFound();
             }
 

@@ -12,8 +12,7 @@ namespace RazorPagesIntro.Pages.Movies
         /*----------------------- PROPERTIES REGION ----------------------*/
         private readonly AppDbContext _appDbContext;
 
-        [BindProperty]
-        public Movie Movie { get; set; }
+        [BindProperty] public Movie Movie { get; set; }
 
         /*------------------------ METHODS REGION ------------------------*/
         public DetailsModel(AppDbContext appDbContext)
@@ -27,8 +26,7 @@ namespace RazorPagesIntro.Pages.Movies
         {
             Movie = await _appDbContext.Movies.FindAsync(id);
 
-            if (Movie != null)
-            {
+            if (Movie != null) {
                 return Page();
             }
 
