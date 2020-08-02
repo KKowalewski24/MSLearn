@@ -7,25 +7,23 @@ using RazorPagesIntro.Exceptions.Movie;
 using RazorPagesIntro.Models;
 using static RazorPagesIntro.Constants.Constants;
 
-namespace RazorPagesIntro.Pages.Movies
-{
-    public class EditModel : PageModel
-    {
+namespace RazorPagesIntro.Pages.Movies {
+
+    public class EditModel : PageModel {
+
         /*----------------------- PROPERTIES REGION ----------------------*/
         private readonly AppDbContext _appDbContext;
 
         [BindProperty] public Movie Movie { get; set; }
 
         /*------------------------ METHODS REGION ------------------------*/
-        public EditModel(AppDbContext appDbContext)
-        {
+        public EditModel(AppDbContext appDbContext) {
             _appDbContext = appDbContext;
         }
 
         #region HttpMethods
 
-        public async Task<IActionResult> OnGetAsync(int id)
-        {
+        public async Task<IActionResult> OnGetAsync(int id) {
             Movie = await _appDbContext.Movies.FindAsync(id);
 
             if (Movie != null) {
@@ -35,8 +33,7 @@ namespace RazorPagesIntro.Pages.Movies
             return RedirectToPage(PATH_MOVIES);
         }
 
-        public async Task<IActionResult> OnPostAsync()
-        {
+        public async Task<IActionResult> OnPostAsync() {
             if (!ModelState.IsValid) {
                 return Page();
             }
@@ -45,8 +42,7 @@ namespace RazorPagesIntro.Pages.Movies
 
             try {
                 await _appDbContext.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException) {
+            } catch (DbUpdateConcurrencyException) {
                 throw new MovieNotFoundException(Movie.Id.ToString());
             }
 
@@ -54,5 +50,7 @@ namespace RazorPagesIntro.Pages.Movies
         }
 
         #endregion
+
     }
+
 }

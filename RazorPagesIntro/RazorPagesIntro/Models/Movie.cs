@@ -2,10 +2,10 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace RazorPagesIntro.Models
-{
-    public class Movie
-    {
+namespace RazorPagesIntro.Models {
+
+    public class Movie {
+
         /*----------------------- PROPERTIES REGION ----------------------*/
         public int Id { get; set; }
 
@@ -33,13 +33,11 @@ namespace RazorPagesIntro.Models
         public string Rating { get; set; }
 
         /*------------------------ METHODS REGION ------------------------*/
-        public Movie()
-        {
+        public Movie() {
         }
 
         public Movie(int id, string title, DateTime releaseDate, decimal price, string genre,
-            string rating)
-        {
+                     string rating) {
             Id = id;
             Title = title;
             ReleaseDate = releaseDate;
@@ -48,31 +46,29 @@ namespace RazorPagesIntro.Models
             Rating = rating;
         }
 
-        protected bool Equals(Movie other)
-        {
+        protected bool Equals(Movie other) {
             return Id == other.Id && Title == other.Title &&
                    ReleaseDate.Equals(other.ReleaseDate) && Price == other.Price &&
                    Genre == other.Genre && Rating == other.Rating;
         }
 
-        public override bool Equals(object obj)
-        {
+        public override bool Equals(object obj) {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != this.GetType()) return false;
             return Equals((Movie) obj);
         }
 
-        public override int GetHashCode()
-        {
+        public override int GetHashCode() {
             return HashCode.Combine(Id, Title, ReleaseDate, Price, Genre, Rating);
         }
 
-        public override string ToString()
-        {
+        public override string ToString() {
             return $"{nameof(Id)}: {Id}, {nameof(Title)}: {Title}," +
                    $" {nameof(ReleaseDate)}: {ReleaseDate}, {nameof(Price)}: {Price}," +
                    $" {nameof(Genre)}: {Genre}, {nameof(Rating)}: {Rating}";
         }
+
     }
+
 }

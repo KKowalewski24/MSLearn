@@ -5,30 +5,27 @@ using RazorPagesIntro.Data;
 using RazorPagesIntro.Models;
 using static RazorPagesIntro.Constants.Constants;
 
-namespace RazorPagesIntro.Pages
-{
-    public class CreateModel : PageModel
-    {
+namespace RazorPagesIntro.Pages {
+
+    public class CreateModel : PageModel {
+
         /*----------------------- PROPERTIES REGION ----------------------*/
         private readonly AppDbContext _appDbContext;
 
         [BindProperty] public Customer Customer { get; set; }
 
         /*------------------------ METHODS REGION ------------------------*/
-        public CreateModel(AppDbContext appDbContext)
-        {
+        public CreateModel(AppDbContext appDbContext) {
             _appDbContext = appDbContext;
         }
 
         #region HttpMethods
 
-        public IActionResult OnGet()
-        {
+        public IActionResult OnGet() {
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync()
-        {
+        public async Task<IActionResult> OnPostAsync() {
             if (!ModelState.IsValid) {
                 return Page();
             }
@@ -40,5 +37,7 @@ namespace RazorPagesIntro.Pages
         }
 
         #endregion
+
     }
+
 }

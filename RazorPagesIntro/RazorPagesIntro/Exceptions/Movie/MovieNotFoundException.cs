@@ -1,24 +1,23 @@
 ﻿using System;
 
-namespace RazorPagesIntro.Exceptions.Movie
-{
-    public class MovieNotFoundException : MovieException
-    {
+namespace RazorPagesIntro.Exceptions.Movie {
+
+    public class MovieNotFoundException : MovieException {
+
         /*----------------------- PROPERTIES REGION ----------------------*/
 
         /*------------------------ METHODS REGION ------------------------*/
-        public MovieNotFoundException()
-        {
+        public MovieNotFoundException() {
         }
 
         public MovieNotFoundException(string message)
-            : base(message)
-        {
+            : base(message) {
         }
 
         public MovieNotFoundException(string message, Exception innerException)
-            : base(message, innerException)
-        {
+            : base(message, innerException) {
         }
+
     }
+
 }

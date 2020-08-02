@@ -1,7 +1,7 @@
-﻿namespace RazorPagesIntro.Constants
-{
-    public class Constants
-    {
+﻿namespace RazorPagesIntro.Constants {
+
+    public class Constants {
+
         /*----------------------- PROPERTIES REGION ----------------------*/
         public const string DB_NAME = "InternalDatabase";
 
@@ -15,5 +15,7 @@
 
         public const string PATH_MOVIES = SLASH + MOVIES + SLASH + INDEX;
         /*------------------------ METHODS REGION ------------------------*/
+
     }
+
 }

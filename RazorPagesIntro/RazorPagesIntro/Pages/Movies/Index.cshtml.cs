@@ -6,30 +6,27 @@ using Microsoft.EntityFrameworkCore;
 using RazorPagesIntro.Data;
 using RazorPagesIntro.Models;
 
-namespace RazorPagesIntro.Pages.Movies
-{
-    public class IndexModel : PageModel
-    {
+namespace RazorPagesIntro.Pages.Movies {
+
+    public class IndexModel : PageModel {
+
         /*----------------------- PROPERTIES REGION ----------------------*/
         private readonly AppDbContext _appDbContext;
 
         [BindProperty] public IList<Movie> Movies { get; set; }
 
         /*------------------------ METHODS REGION ------------------------*/
-        public IndexModel(AppDbContext appDbContext)
-        {
+        public IndexModel(AppDbContext appDbContext) {
             _appDbContext = appDbContext;
         }
 
         #region HttpMethods
 
-        public async Task OnGetAsync()
-        {
+        public async Task OnGetAsync() {
             Movies = await _appDbContext.Movies.ToListAsync();
         }
 
-        public async Task<IActionResult> OnPostDeleteAsync(int id)
-        {
+        public async Task<IActionResult> OnPostDeleteAsync(int id) {
             var movie = await _appDbContext.Movies.FindAsync(id);
 
             if (movie != null) {
@@ -41,5 +38,7 @@ namespace RazorPagesIntro.Pages.Movies
         }
 
         #endregion
+
     }
+
 }

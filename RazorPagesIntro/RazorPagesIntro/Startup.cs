@@ -7,31 +7,27 @@ using Microsoft.Extensions.Hosting;
 using RazorPagesIntro.Data;
 using static RazorPagesIntro.Constants.Constants;
 
-namespace RazorPagesIntro
-{
-    public class Startup
-    {
+namespace RazorPagesIntro {
+
+    public class Startup {
+
         /*----------------------- PROPERTIES REGION ----------------------*/
         public IConfiguration Configuration { get; }
 
         /*------------------------ METHODS REGION ------------------------*/
-        public Startup(IConfiguration configuration)
-        {
+        public Startup(IConfiguration configuration) {
             Configuration = configuration;
         }
 
-        public void ConfigureServices(IServiceCollection services)
-        {
+        public void ConfigureServices(IServiceCollection services) {
             services.AddDbContext<AppDbContext>((it) => it.UseInMemoryDatabase(DB_NAME));
             services.AddRazorPages();
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
             if (env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
-            }
-            else {
+            } else {
                 app.UseExceptionHandler(PATH_ERROR);
                 app.UseHsts();
             }
@@ -43,5 +39,7 @@ namespace RazorPagesIntro
             app.UseAuthorization();
             app.UseEndpoints(endpoints => { endpoints.MapRazorPages(); });
         }
+
     }
+
 }

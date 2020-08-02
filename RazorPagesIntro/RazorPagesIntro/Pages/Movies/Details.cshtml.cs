@@ -5,25 +5,23 @@ using RazorPagesIntro.Data;
 using RazorPagesIntro.Models;
 using static RazorPagesIntro.Constants.Constants;
 
-namespace RazorPagesIntro.Pages.Movies
-{
-    public class DetailsModel : PageModel
-    {
+namespace RazorPagesIntro.Pages.Movies {
+
+    public class DetailsModel : PageModel {
+
         /*----------------------- PROPERTIES REGION ----------------------*/
         private readonly AppDbContext _appDbContext;
 
         [BindProperty] public Movie Movie { get; set; }
 
         /*------------------------ METHODS REGION ------------------------*/
-        public DetailsModel(AppDbContext appDbContext)
-        {
+        public DetailsModel(AppDbContext appDbContext) {
             _appDbContext = appDbContext;
         }
 
         #region HttpMethods
 
-        public async Task<IActionResult> OnGetAsync(int id)
-        {
+        public async Task<IActionResult> OnGetAsync(int id) {
             Movie = await _appDbContext.Movies.FindAsync(id);
 
             if (Movie != null) {
@@ -34,5 +32,7 @@ namespace RazorPagesIntro.Pages.Movies
         }
 
         #endregion
+
     }
+
 }

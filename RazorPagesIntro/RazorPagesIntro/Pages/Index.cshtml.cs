@@ -7,31 +7,28 @@ using Microsoft.Extensions.Logging;
 using RazorPagesIntro.Data;
 using RazorPagesIntro.Models;
 
-namespace RazorPagesIntro.Pages
-{
-    public class IndexModel : PageModel
-    {
+namespace RazorPagesIntro.Pages {
+
+    public class IndexModel : PageModel {
+
         /*----------------------- PROPERTIES REGION ----------------------*/
         private readonly ILogger<IndexModel> _logger;
         private readonly AppDbContext _appDbContext;
         public IList<Customer> CustomerList { get; set; }
 
         /*------------------------ METHODS REGION ------------------------*/
-        public IndexModel(AppDbContext appDbContext, ILogger<IndexModel> logger = null)
-        {
+        public IndexModel(AppDbContext appDbContext, ILogger<IndexModel> logger = null) {
             _appDbContext = appDbContext;
             _logger = logger;
         }
 
         #region HttpMethods
 
-        public async Task OnGetAsync()
-        {
+        public async Task OnGetAsync() {
             CustomerList = await _appDbContext.Customers.ToListAsync();
         }
 
-        public async Task<IActionResult> OnPostDeleteAsync(int id)
-        {
+        public async Task<IActionResult> OnPostDeleteAsync(int id) {
             var customer = await _appDbContext.Customers.FindAsync(id);
 
             if (customer != null) {
@@ -43,5 +40,7 @@ namespace RazorPagesIntro.Pages
         }
 
         #endregion
+
     }
+
 }

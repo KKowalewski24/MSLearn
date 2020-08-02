@@ -5,26 +5,23 @@ using RazorPagesIntro.Data;
 using RazorPagesIntro.Models;
 using static RazorPagesIntro.Constants.Constants;
 
-namespace RazorPagesIntro.Pages.Movies
-{
-    public class CreateModel : PageModel
-    {
+namespace RazorPagesIntro.Pages.Movies {
+
+    public class CreateModel : PageModel {
+
         private readonly AppDbContext _appDbContext;
 
         [BindProperty] public Movie Movie { get; set; }
 
-        public CreateModel(AppDbContext appDbContext)
-        {
+        public CreateModel(AppDbContext appDbContext) {
             _appDbContext = appDbContext;
         }
 
-        public IActionResult OnGet()
-        {
+        public IActionResult OnGet() {
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync()
-        {
+        public async Task<IActionResult> OnPostAsync() {
             if (!ModelState.IsValid) {
                 return Page();
             }
@@ -34,5 +31,7 @@ namespace RazorPagesIntro.Pages.Movies
 
             return RedirectToPage(PATH_MOVIES);
         }
+
     }
+
 }
