@@ -7,27 +7,24 @@ using Microsoft.Extensions.Hosting;
 using ScheduleWebApi.Data;
 using static ScheduleWebApi.Constants.Constants;
 
-namespace ScheduleWebApi
-{
-    public class Startup
-    {
+namespace ScheduleWebApi {
+
+    public class Startup {
+
         /*----------------------- PROPERTIES REGION ----------------------*/
         public IConfiguration Configuration { get; }
 
         /*------------------------ METHODS REGION ------------------------*/
-        public Startup(IConfiguration configuration)
-        {
+        public Startup(IConfiguration configuration) {
             Configuration = configuration;
         }
 
-        public void ConfigureServices(IServiceCollection services)
-        {
+        public void ConfigureServices(IServiceCollection services) {
             services.AddDbContext<AppDbContext>((it) => it.UseInMemoryDatabase(DB_NAME));
             services.AddControllers();
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
             if (env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
             }
@@ -37,5 +34,7 @@ namespace ScheduleWebApi
             app.UseAuthorization();
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
+
     }
+
 }

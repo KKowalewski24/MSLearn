@@ -6,12 +6,12 @@ using Microsoft.Extensions.Logging;
 using ScheduleWebApi.Models;
 using static ScheduleWebApi.Constants.Constants;
 
-namespace ScheduleWebApi.Controllers
-{
+namespace ScheduleWebApi.Controllers {
+
     [ApiController]
     [Route(CONTROLLER)]
-    public class WeatherForecastController : ControllerBase
-    {
+    public class WeatherForecastController : ControllerBase {
+
         /*----------------------- PROPERTIES REGION ----------------------*/
         private static readonly string[] Summaries = {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering",
@@ -21,14 +21,12 @@ namespace ScheduleWebApi.Controllers
         private readonly ILogger<WeatherForecastController> _logger;
 
         /*------------------------ METHODS REGION ------------------------*/
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
-        {
+        public WeatherForecastController(ILogger<WeatherForecastController> logger) {
             _logger = logger;
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
-        {
+        public IEnumerable<WeatherForecast> Get() {
             var rng = new Random();
             return Enumerable.Range(1, 5).Select((index) => new WeatherForecast {
                 Date = DateTime.Now.AddDays(index),
@@ -36,5 +34,7 @@ namespace ScheduleWebApi.Controllers
                 Summary = Summaries[rng.Next(Summaries.Length)]
             }).ToArray();
         }
+
     }
+
 }

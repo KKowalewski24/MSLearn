@@ -7,35 +7,31 @@ using ScheduleWebApi.Data;
 using ScheduleWebApi.Models;
 using static ScheduleWebApi.Constants.Constants;
 
-namespace ScheduleWebApi.Controllers
-{
+namespace ScheduleWebApi.Controllers {
+
     [Route(PATH_API_CONTROLLER)]
     [ApiController]
-    public class ScheduleItemController : ControllerBase
-    {
+    public class ScheduleItemController : ControllerBase {
+
         /*----------------------- PROPERTIES REGION ----------------------*/
         private readonly AppDbContext _appDbContext;
 
         /*------------------------ METHODS REGION ------------------------*/
-        public ScheduleItemController(AppDbContext appDbContext)
-        {
+        public ScheduleItemController(AppDbContext appDbContext) {
             _appDbContext = appDbContext;
         }
 
-        private bool IsItemExists(long id)
-        {
+        private bool IsItemExists(long id) {
             return _appDbContext.ScheduleItems.Any((it) => it.Id == id);
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ScheduleItem>>> GetItemList()
-        {
+        public async Task<ActionResult<IEnumerable<ScheduleItem>>> GetItemList() {
             return await _appDbContext.ScheduleItems.ToListAsync();
         }
 
         [HttpGet(ID)]
-        public async Task<ActionResult<ScheduleItem>> GetItem(long id)
-        {
+        public async Task<ActionResult<ScheduleItem>> GetItem(long id) {
             var item = await _appDbContext.ScheduleItems.FindAsync(id);
 
             if (item == null) {
@@ -46,8 +42,7 @@ namespace ScheduleWebApi.Controllers
         }
 
         [HttpPut(ID)]
-        public async Task<IActionResult> PutItem(long id, ScheduleItem scheduleItem)
-        {
+        public async Task<IActionResult> PutItem(long id, ScheduleItem scheduleItem) {
             if (id != scheduleItem.Id) {
                 return BadRequest();
             }
@@ -56,12 +51,10 @@ namespace ScheduleWebApi.Controllers
 
             try {
                 await _appDbContext.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException) {
+            } catch (DbUpdateConcurrencyException) {
                 if (!IsItemExists(id)) {
                     return NotFound();
-                }
-                else {
+                } else {
                     throw;
                 }
             }
@@ -70,8 +63,7 @@ namespace ScheduleWebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<ScheduleItem>> PostItem(ScheduleItem scheduleItem)
-        {
+        public async Task<ActionResult<ScheduleItem>> PostItem(ScheduleItem scheduleItem) {
             _appDbContext.ScheduleItems.Add(scheduleItem);
             await _appDbContext.SaveChangesAsync();
 
@@ -79,8 +71,7 @@ namespace ScheduleWebApi.Controllers
         }
 
         [HttpDelete(ID)]
-        public async Task<ActionResult<ScheduleItem>> DeleteItem(long id)
-        {
+        public async Task<ActionResult<ScheduleItem>> DeleteItem(long id) {
             var item = await _appDbContext.ScheduleItems.FindAsync(id);
 
             if (item == null) {
@@ -92,5 +83,7 @@ namespace ScheduleWebApi.Controllers
 
             return item;
         }
+
     }
+
 }
