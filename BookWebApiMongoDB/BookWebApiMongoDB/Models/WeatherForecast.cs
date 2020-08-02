@@ -1,9 +1,9 @@
 using System;
 
-namespace BookWebApiMongoDB.Models
-{
-    public class WeatherForecast
-    {
+namespace BookWebApiMongoDB.Models {
+
+    public class WeatherForecast {
+
         /*----------------------- PROPERTIES REGION ----------------------*/
         public DateTime Date { get; set; }
         public int TemperatureC { get; set; }
@@ -11,5 +11,7 @@ namespace BookWebApiMongoDB.Models
         public string Summary { get; set; }
 
         /*------------------------ METHODS REGION ------------------------*/
+
     }
+
 }

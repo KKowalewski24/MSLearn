@@ -7,21 +7,19 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 
-namespace BookWebApiMongoDB
-{
-    public class Startup
-    {
+namespace BookWebApiMongoDB {
+
+    public class Startup {
+
         /*----------------------- PROPERTIES REGION ----------------------*/
         public IConfiguration Configuration { get; }
 
         /*------------------------ METHODS REGION ------------------------*/
-        public Startup(IConfiguration configuration)
-        {
+        public Startup(IConfiguration configuration) {
             Configuration = configuration;
         }
 
-        public void ConfigureServices(IServiceCollection services)
-        {
+        public void ConfigureServices(IServiceCollection services) {
             services.Configure<BookstoreDatabaseSettings>(
                 Configuration.GetSection(nameof(BookstoreDatabaseSettings)));
 
@@ -33,8 +31,7 @@ namespace BookWebApiMongoDB
             services.AddControllers().AddNewtonsoftJson((it) => it.UseMemberCasing());
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
             if (env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
             }
@@ -44,5 +41,7 @@ namespace BookWebApiMongoDB
             app.UseAuthorization();
             app.UseEndpoints(endpoints => endpoints.MapControllers());
         }
+
     }
+
 }

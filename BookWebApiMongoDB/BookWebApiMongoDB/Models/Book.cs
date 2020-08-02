@@ -2,10 +2,10 @@
 using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json;
 
-namespace BookWebApiMongoDB.Models
-{
-    public class Book
-    {
+namespace BookWebApiMongoDB.Models {
+
+    public class Book {
+
         /*----------------------- PROPERTIES REGION ----------------------*/
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
@@ -20,5 +20,7 @@ namespace BookWebApiMongoDB.Models
         public string Author { get; set; }
 
         /*------------------------ METHODS REGION ------------------------*/
+
     }
+
 }

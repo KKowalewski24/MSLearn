@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using BookWebApiMongoDB.Models;
 
-namespace BookWebApiMongoDB.Services
-{
-    public interface IBookService
-    {
+namespace BookWebApiMongoDB.Services {
+
+    public interface IBookService {
+
         List<Book> GetAll();
 
         Book GetById(string id);
@@ -16,5 +16,7 @@ namespace BookWebApiMongoDB.Services
         void Delete(Book book);
 
         void DeleteById(string id);
+
     }
+
 }

@@ -1,7 +1,7 @@
-﻿namespace BookWebApiMongoDB.Constants
-{
-    public class Constants
-    {
+﻿namespace BookWebApiMongoDB.Constants {
+
+    public class Constants {
+
         /*----------------------- PROPERTIES REGION ----------------------*/
         public const string SLASH = "/";
         public const string CONTROLLER = "[controller]";
@@ -13,5 +13,7 @@
         public const string PATH_API_CONTROLLER = API + SLASH + CONTROLLER;
 
         /*------------------------ METHODS REGION ------------------------*/
+
     }
+
 }
